@@ -1,0 +1,89 @@
+ext {
+
+    android = [
+            compileSdkVersion: 28,
+            minSdkVersion    : 21,
+            targetSdkVersion : 28,
+            versionCode      : 2,
+            versionName      : "1.1.0"
+    ]
+
+    dependVersion = [
+            androidSupportSdkVersion: "1.3.2",
+            appcompat               : "1.1.0",
+            constraintlayoutVersion : "2.1.2",
+            retrofitSdkVersion      : "2.5.0",
+            rxJavaSdkVersion        : "2.2.9",
+            rxAndroid               : "2.1.1",
+            roomcompiler            : "1.1.1",
+            roomruntime             : "2.1.0",
+            kotlinVersion           : '1.3.31',
+            lifecycle               : "2.2.0",
+            glide                   : "4.11.0",
+            coroutine               : "1.1.1",
+            arouter_api             : "1.5.1",
+            arouter_compiler        : "1.5.1",
+            lottie                  : "3.0.7",
+            eventbus                : "3.1.1",
+            room_version            : "2.1.0",
+            hilt_version            : "2.28-alpha"
+    ]
+
+    supportDeps = [
+            "appcompat"       : "androidx.appcompat:appcompat:${dependVersion.appcompat}",
+            "material"        : "com.google.android.material:material:${dependVersion.appcompat}",
+            "ktx"             : "androidx.core:core-ktx:${dependVersion.androidSupportSdkVersion}",
+            "constraintlayout": "androidx.constraintlayout:constraintlayout:${dependVersion.constraintlayoutVersion}",
+            "kotlin"          : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${dependVersion.kotlinVersion}",
+            "lifecycle"       : "androidx.lifecycle:lifecycle-extensions:${dependVersion.lifecycle}",
+            "lifecycleruntime": "androidx.lifecycle:lifecycle-runtime:${dependVersion.lifecycle}",
+            "lottie"          : "com.airbnb.android:lottie:${dependVersion.lottie}",
+            "eventBus"        : "org.greenrobot:eventbus:${dependVersion.eventbus}",
+
+    ]
+
+    retrofit = [
+            "retrofit"                : "com.squareup.retrofit2:retrofit:${dependVersion.retrofitSdkVersion}",
+            "retrofitConverterGson"   : "com.squareup.retrofit2:converter-gson:2.4.0",
+            "retrofitAdapterRxjava2"  : "com.squareup.retrofit2:adapter-rxjava2:2.4.0",
+            "okhttp3LoggerInterceptor": 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+    ]
+
+    Coroutine = [
+
+            "core"   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${dependVersion.coroutine}",
+            "android": "org.jetbrains.kotlinx:kotlinx-coroutines-android:${dependVersion.coroutine}"
+    ]
+
+
+    rxJava = [
+            "rxJava"     : "io.reactivex.rxjava2:rxjava:${dependVersion.rxJavaSdkVersion}",
+            "rxAndroid"  : "io.reactivex.rxjava2:rxandroid:${dependVersion.rxAndroid}",
+            "room-rxJava": 'androidx.room:room-rxjava2:2.2.0-rc01'
+    ]
+
+    room = [
+            "playservice" : 'com.google.android.gms:play-services-plus:16.0.0',
+            "room"        : "androidx.room:room-compiler:2.1.0",
+            "databinding" : 'com.android.databinding:compiler:3.1.4',
+            "roomruntime" : "androidx.room:room-runtime:${dependVersion.roomruntime}",
+            "roomcompiler": "android.arch.persistence.room:compiler:${dependVersion.roomcompiler}"
+    ]
+
+    aroute = [
+            "arouter-api"     : "com.alibaba:arouter-api:${dependVersion.arouter_api}",
+            "arouter-compiler": "com.alibaba:arouter-compiler:${dependVersion.arouter_compiler}"
+    ]
+
+    hilt = [
+        "hilt-api":"com.google.dagger:hilt-android:${dependVersion.hilt_version}"
+    ]
+
+    supportLibs = supportDeps.values()
+    networkLibs = retrofit.values()
+    rxJavaLibs = rxJava.values()
+    coroutineLibs = Coroutine.values()
+    arouteLibs = aroute.values()
+    roomLibs = room.values()
+    hiltLibs = hilt.values()
+}

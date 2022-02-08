@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ASMIdeaPluginConfiguration">
+    <asm skipDebug="false" skipFrames="false" skipCode="false" expandFrames="false" />
+    <groovy codeStyle="LEGACY" />
+  </component>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/workspace/LiteMusic/app/src/main/res/drawable/ic_launcher_background.xml" value="0.17" />
+        <entry key="..\:/workspace/LiteMusic/app/src/main/res/drawable/splash_item.xml" value="0.17" />
+        <entry key="..\:/workspace/LiteMusic/app/src/main/res/drawable/splash_item_night.xml" value="0.1745" />
+        <entry key="..\:/workspace/LiteMusic/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1745" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

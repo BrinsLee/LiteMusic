@@ -1,0 +1,136 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+
+
+android {
+  compileSdkVersion rootProject.ext.android.compileSdkVersion
+  defaultConfig {
+    applicationId "com.brins.lightmusic"
+    minSdkVersion rootProject.ext.android.minSdkVersion
+    targetSdkVersion rootProject.ext.android.targetSdkVersion
+    versionCode rootProject.ext.android.versionCode
+    versionName rootProject.ext.android.versionName
+    renderscriptTargetApi 19
+    renderscriptSupportModeEnabled true
+    multiDexEnabled true
+    javaCompileOptions {
+      annotationProcessorOptions {
+        arguments += [moduleName: project.getName()]
+
+      }
+    }
+
+    ndk {
+      // 设置支持的 SO 库构架
+      abiFilters 'armeabi', 'armeabi-v7a', 'x86'//, 'x86_64', 'arm64-v8a', 'mips', 'mips64'
+    }
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+  }
+  //启用DataBinding
+  dataBinding {
+    enabled true
+  }
+
+  lintOptions {
+    checkReleaseBuilds false
+    // Or, if you prefer, you can continue to check for errors in release builds,
+    // but continue the build even when errors are found:
+    abortOnError false
+  }
+}
+
+kapt {  // kapt 配置
+  generateStubs = true
+}
+kapt {
+  arguments {
+    arg("AROUTER_MODULE_NAME", project.getName())
+  }
+}
+
+kotlin {
+  experimental {
+    coroutines 'enable'
+  }
+}
+
+
+
+dependencies {
+  implementation fileTree(dir: "libs", include: ["*.jar"])
+  api rootProject.ext.supportLibs
+  implementation project(':base')
+  implementation project(':bridgelib')
+  // ARouter
+  implementation "com.alibaba:arouter-api:${rootProject.ext.dependVersion.arouter_api}"
+  kapt "com.alibaba:arouter-compiler:${rootProject.ext.dependVersion.arouter_compiler}"
+  // hilt
+  api rootProject.ext.hiltLibs
+  kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+  /*  if (addHome) {
+      implementation project(':home')
+    }
+    if (addMine) {
+      implementation project(':mine')
+    }
+    if (addPlayer) {
+      implementation project(':playerlib')
+    }
+    if (addNetwork) {
+      implementation project(':networklib')
+    }
+    if (addRecycler) {
+      implementation project(':recyclerlib')
+    }
+    if (addMusicDetail) {
+      implementation project(':musicdetail')
+    }
+    if (addVideo) {
+      implementation project(':video')
+    }
+    if (addMusicList) {
+      implementation project(':musiclistlib')
+    }
+    if (addMusicSquare) {
+      implementation project(':musicsquarelib')
+    }
+    if (addDaily) {
+      implementation project(':dailylib')
+    }
+    if (addLogin) {
+      implementation project(':loginlib')
+    }
+    if (addSearch) {
+      implementation project(':searchlib')
+    }
+    if (addFind) {
+      implementation project(':find')
+    }
+    if (addPictureDetail) {
+      implementation project(':picturedetaillib')
+    }
+    if (addEventDetail) {
+      implementation project(':eventdetaillib')
+    }
+    if (addRadio) {
+      implementation project(':radiolib')
+    }
+    if (addLocal) {
+      implementation project(':local')
+    }*/
+
+}
